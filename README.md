@@ -1,4 +1,4 @@
-# MVCOnion
+# MVC Onion Architecture
 ### 1. EntityFramework 6 Code First Using MVC 5 with N-Tier Architecture
 ### 2. Four Layers:
    - Presentation Layer (referencing Applicaiton and Domain Layers)
