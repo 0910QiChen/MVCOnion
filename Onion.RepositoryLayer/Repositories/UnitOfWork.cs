@@ -1,10 +1,5 @@
-﻿using Onion.DomainLayer.DomainModels;
-using Onion.DomainLayer.Interfaces;
+﻿using Onion.DomainLayer.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Onion.RepositoryLayer.Repositories
 {
