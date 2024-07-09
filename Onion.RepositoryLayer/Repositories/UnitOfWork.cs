@@ -17,7 +17,7 @@ namespace Onion.RepositoryLayer.Repositories
         public UnitOfWork(UserContext context)
         {
             _context = context;
-            UserRepo = new UserRepo(context);
+            UserRepo = new UserRepo(_context);
         }
 
         public int complete()

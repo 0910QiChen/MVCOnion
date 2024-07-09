@@ -31,7 +31,7 @@ namespace Onion.RepositoryLayer.Repositories
 
         public void editUser(Users user)
         {
-            _usersRepo.update(user);
+            _usersRepo.update(findUser(user.userID));
         }
 
         public void deleteUser(int id)

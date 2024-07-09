@@ -29,10 +29,11 @@ namespace Onion.ServiceLayer.Services
             List<UserDTO> userList = new List<UserDTO>();
             foreach(var user in users)
             {
-                UserDTO userDTO = new UserDTO();
-                userDTO.userID = user.userID;
-                userDTO.username = user.username;
-                userDTO.email = user.email;
+                UserDTO userDTO = new UserDTO {
+                    userID = user.userID,
+                    username = user.username,
+                    email = user.email,
+                };
                 userList.Add(userDTO);
             }
             return userList;
@@ -58,24 +59,24 @@ namespace Onion.ServiceLayer.Services
             {
                 return null;
             }
-            var userDTO = new UserDTO
+            return new UserDTO
             {
                 userID = domainUser.userID,
                 username = domainUser.username,
                 email = domainUser.email
             };
-            return userDTO;
         }
 
         public void editUser(UserDTO userDTO)
         {
-            var user = new Users
+            var user = _unitOfWork.UserRepo.findUser(userDTO.userID);
+            if(user != null)
             {
-                username = userDTO.username,
-                email = userDTO.email,
-            };
-            _unitOfWork.UserRepo.editUser(user);
-            _unitOfWork.complete();
+                user.username = userDTO.username;
+                user.email = userDTO.email;
+                _unitOfWork.UserRepo.editUser(user);
+                _unitOfWork.complete();
+            }
         }
 
         public void deleteUser(int id)

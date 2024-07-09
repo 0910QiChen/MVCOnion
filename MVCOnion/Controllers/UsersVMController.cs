@@ -102,10 +102,11 @@ namespace MVCOnion.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "username,email")] UsersVM usersVM)
+        public ActionResult Edit([Bind(Include = "userID,username,email")] UsersVM usersVM)
         {
             var userDTO = new UserDTO
             {
+                userID = usersVM.userID,
                 username = usersVM.username,
                 email = usersVM.email,
             };
